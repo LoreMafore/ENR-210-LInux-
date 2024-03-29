@@ -1,0 +1,62 @@
+1.cat data-* > data1.dat
+
+2.awk 'BEGIN {FS = " "}{falseData = 0; for(i =3; i<= NF; i++) {if ($1 ~ /-/) {falseData; break}} if (falseData == 0) {print $0}}' data1.dat > data2.dat
+
+3.awk 'NF >= 8' data1.dat >data3.dat
+
+4.awk '{gsub("-", " ", $2); print}' data3.dat > datatest.dat
+  awk '{day=27; month=4; if ($4 >= day || $3 >= month) print}' datatest.dat > datatest1.dat
+  awk '{printf "%d %02d-%02d-%02d-%s %.2f %.2f %.2f %.2f %.2f %.2f\n", $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11}' datatest1.dat > data.dat
+
+5.gnuplot -p temperature.gnuplot
+
+6.gnuplot -p humidity.gnuplot
+
+7. A. awk '{gsub("-", " ", $1); print}' data.dat > datatest.dat
+      awk 'BEGIN{FS = " "} {print($2, $3, $4, $6, $7, $8, $9, $10, $11)}' datatest.dat > data4.dat
+   
+   B.awk 'BEGIN{FS=" "; sumTemp1 = 0; sumHum1 = 0; sumTemp2 = 0; sumHum2 = 0; sumTemp3 = 0; sumHum3 = 0; count = 0; month = 0; year = 0;} 
+{ 
+    if($1 == year && $2 == month) {
+        sumTemp1 += $4; 
+        sumHum1 += $5; 
+        sumTemp2 += $6; 
+        sumHum2 += $7; 
+        sumTemp3 += $8; 
+        sumHum3 += $9; 
+        count++;
+    } 
+    else {
+        if(year != 0 && month != 0) {
+            print(year, month, sumTemp1/count, sumHum1/count, sumTemp2/count, sumHum2/count, sumTemp3/count, sumHum3/count);
+        } 
+        sumTemp1 = $4; 
+        sumHum1 = $5; 
+        sumTemp2 = $6; 
+        sumHum2 = $7; 
+        sumTemp3 = $8; 
+        sumHum3 = $9; 
+        count = 1;
+        month = $2; 
+        year = $1;
+    }
+} 
+END {
+    if(year != 0 && month != 0) {
+        print(year, month, sumTemp1/count, sumHum1/count, sumTemp2/count, sumHum2/count, sumTemp3/count, sumHum3/count);
+    }
+}' data4.dat > averages.dat
+
+
+    awk '{printf "%02d-%02d %.2f %.2f %.2f %.2f %.2f %.2f\n", $1, $2, $3, $4, $5, $6, $7, $8, $9}'  datatest1.dat > average.dat
+
+
+8.  gnuplot -p tempature.gnuplot > tempature.png
+    gnuplot -p humidity.gnuplot > humidity.png
+
+
+Then  rm datatest.dat; rm datatest1.dat;
+
+
+
+
