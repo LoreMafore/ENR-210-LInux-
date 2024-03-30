@@ -1,0 +1,38 @@
+Here are my instructions for my Midterm Project
+
+
+1. Use cat to combine all of the data files together into a single large data file called data1.dat and give me the exact command that you used to do it.
+
+2. There are lines in the data1.dat file which are corrupted. Some of them have a negative number in one of their fields. Negative numbers are not possible 
+in this experiment and so those lines are bad data and need to be removed. Give me an AWK command that will take data1.dat as input and print out only the 
+lines that do not contain a negative number in them. Redirect the output to a new file called data2.dat and make sure that it contains all of the data except 
+the ones with negative numbers in them. HINT: the regular expression !/blah/ will match lines that do not contain the pattern blah.
+
+3.There are lines in data2.dat which do not have 8 fields. Correct lines of data contain the following fields: GroupNumber Date-Time T1 H1 T2 H2 T3 H3  which are
+8 fields. Give an AWK command that will get rid of the lines that do not have 8 fields and will redirect the output to a file called data3.dat, the file data3.dat 
+should now have no negative numbers and also no lines that have an incorrect number of fields.
+
+4.The temperatures in this experiment started out high but then settled down to a steady temperature by March 27, 2023. Give an awk command that prints out only the 
+records that come after 23-03-27 and prints them to a file called data.dat
+
+5.Test your data file by typing gnuplot -p temperature.gnuplot and make sure a correct plot appears showing the temperatures in the concrete at three different radii.
+
+6.Test your data by typing gnuplot -p humidity.gnuplot and make sure that a correct plot appears showing the relative humidity in the concrete at three different radii.
+
+7. Now we would like to smooth the data. Currently your data file has data points every couple of hours. Instead we would like to have only the monthly averages: 
+
+    A.Write an AWK pipeline that converts all of the lines in the file to the form: 24 02 13 20.86 54.83 20.86 54.83 20.93 78.20 where the first three fields are 
+    Year Month Day and the other 6 fields are T1 H1 T2 H2 T3 H3 HINT: you can do this by changing the field separator to a dash. Send the output to a file called 
+    data4.dat
+
+    B. Now write an AWK script that averages all of the temperatures and humidities that have the same Year Month. You can do this by saving the month field in a variable
+    and continuing to compare the new field with the saved one, record by record, and adding up the values. When the month changes you compute the average of the ones read
+    up to that point and print out the date and averages, then continue with the new month. In this way the result should be a file with the monthly averages for temperature 
+    and humidity over the course of the entire experiment. Direct this output to a file called averages.dat
+
+    C.Edit the temperature.gnuplot and humidity.gnuplot files and change the plot lines in it so that it plots the file averages.dat rather that data.dat and then run gnuplot 
+    on it like you did in parts 5 and 6 above. You should now see a plot of the monthly average temperatures and humidities.
+
+    D.Modify the temperature.gnuplot file so that the top line reads set term png and modify the humidity.gnuplot file so that the top line reads set term png then create png 
+    pictures of your plots with gnuplot temperature.gnuplot > temperature.png and gnuplot humidity.gnuplot > humidity.png and submit both png plots here on canvas along with your
+    resulting averages.dat file.
