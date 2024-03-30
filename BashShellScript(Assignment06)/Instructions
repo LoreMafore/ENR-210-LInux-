@@ -1,0 +1,23 @@
+Examine the various subdirectories in /sys/class/thermal and the various files found there.
+
+Write a Bash shell script which reads the temperatures of parts of your computer using, for example
+
+ cat /sys/class/thermal/thermal_zone0/type
+ cat /sys/class/thermal/thermal_zone0/temp
+ cat /sys/class/thermal/thermal_zone1/type
+ cat /sys/class/thermal/thermal_zone1/temp
+ ...etc...
+
+and sets them to variables named 
+
+type0, temp0, type1, temp1, ...
+
+Then convert the temperatures to Celcius using, for example,
+
+ echo "$temp0/1000" | bc
+
+and set it to a variable named celcius0. (Note that not all of them have to be divided by 1000, you will have to look at the 
+numbers and decide which ones need to be divided in order to get Celcius)
+
+The end result should be that a user can execute your script and it will output the different sensor types along with the 
+different temperatures in your computer.
