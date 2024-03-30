@@ -1,0 +1,27 @@
+
+1. Galaxy came up. the .a..x. = galaxy because the . means any character so 
+   it brought up the word galaxy because that is the only word with a and x 
+   in those positions.
+
+2. Anyword at the begging of a sentence that was repeated came up like: AA or
+   bonbon. The \(.*\) represents anyword. And the \1 means that word repeated
+
+3.a. I choose grep '^\(.\+\)\1\(.\+\)\2$' /usr/share/dict/words . It very
+     similar to the prvious command. It finds a char at the beginning of 
+     a sentence and sees if it appears twice besides each other and then it
+     find another charcter and does the same. This results in finding words
+     WWII and xxii.
+
+  b. it matches any words that have two paurs of leeters by each other like:
+     Walloon
+
+4. This command would match any charcter for the first 3 characters of the 
+   sentence. Then the 4th character would be a number between 3-8. Characters
+   5 and 6 are any random chacters. Finally charcter number 8 is a Upper case
+   letter of the alphabet.
+
+5.  '^d.*d$'
+
+
+6. awk '{print tolower($0)}' blah.txt > sorted.txt
+ 
