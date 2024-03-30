@@ -1,0 +1,26 @@
+Assignment 5 Instructions
+
+1.Try this: 
+  grep '^.a..x.$' /usr/share/dict/words
+  What comes out and why?
+
+2.Try this: 
+  grep '^\(.*\)\1$' /usr/share/dict/words
+  What kind of words are matched by this and why?
+
+3.Try this: 
+  grep '^\(.\+\)\1\(.\+\)\2$' /usr/share/dict/words 
+  or this
+  grep -E '^(.+)\1(.+)\2$' /usr/share/dict/words
+  What comes out? What kind of words are matched by this? 
+  What happens if you remove the start of line and the end of line anchors?
+
+4.What would lines look like that are matched by the following search pattern?  
+  ^...[3-8]..[A-W]$
+
+5.What regular expression would I use to search for all words that begin and end with the same letter?
+
+6.A pipeline used in a problem from a previous lecture was 
+  sort blah.txt | tr '[A-Z]' '[a-z]' > sorted.txt 
+  notice that the `translate' or `tr' part of the pipeline uses regular expressions. 
+  Can you think of another way of performing the same task by replacing the [A-Z] and the [a-z] pieces with something else?
