@@ -1,0 +1,8 @@
+The instructions were to make a game to be played on the console.
+
+When you download the file make sure to use the command "chmod +x tictactoeDeluxe.sh"
+to make it executable. 
+
+to run the game use "./tictactoeDeluxe.sh"
+
+Enjoy!!
